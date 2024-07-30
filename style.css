@@ -1,0 +1,113 @@
+*{
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    background-color:#6d35e7 !important;
+    width: 100vw;
+    overflow-x: hidden;
+}
+/*header*/
+header{
+    background-color:#1E0555;
+    color: white;
+    width: 100vw;
+}
+
+header span{
+    text-transform: capitalize;
+    color: rgb(235, 178, 235);
+}
+/*main*/
+main{
+    width: 100vw;
+    min-height: 80vh;
+}
+/*aside1*/
+p {
+    font-size: 0.8rem !important;
+}
+.input-group-text{
+    background-color: #1E0555 !important;
+    color: white !important;
+    border-style: none !important;
+    border-top-right-radius: 2%  !important;
+    border-bottom-right-radius: 2%  !important;
+}
+select{
+    background-color: #ad87ff;
+    color: black;
+    cursor: pointer;
+}
+button{
+    background-color:#1E0555 !important;
+    color: white !important;
+    transition: 0.8s;
+}
+button:hover{
+    background-color:rgb(177, 3, 177) !important;
+    letter-spacing: .8px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: #1E0555 3.5px solid !important;
+}
+
+/*aside2*/
+aside span{
+    color:  rgb(235, 178, 235);
+}
+textarea,#quoteContainer{
+    resize: none !important;
+    height: 20vh;
+    width: 90%;
+    background-color: #ad87ff;
+    overflow-x: hidden;
+    overflow-y:hidden;
+    scroll-behavior: smooth;
+    word-spacing: 0.5rem;
+    text-align: start;
+}
+textarea:focus{
+    border: black 3px solid;
+}
+#quoteContainer span,textarea{
+    color: black;
+    font-weight: bold;
+}
+
+h3,h5{
+    color: white;
+}
+/*footer*/
+
+footer{
+    background-color: #1E0555;
+    width: 100vw;
+    min-height: 4vh;
+    padding: 4px;
+}
+ /*modal*/
+ .modal-content{
+    background-color: #ad87ff !important;
+    display: flex;
+    align-items: center ;
+
+ }
+ /*conditions*/
+ .true{
+    color: green !important;
+    background-color: rgb(104, 210, 104);
+ }
+ .false{
+    color: red !important;
+    background-color: rgb(213, 86, 86);
+    text-decoration: underline !important;
+ }
+ .hidden{
+    display: none !important;
+ }
+    
