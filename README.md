@@ -29,4 +29,4 @@ To run this project locally, follow these steps:
    ```bash
    cd typingtest
    ```
-3. **Open `index.html` in your browser using vscode live server extention**.
+3. **Open `index.html` in your browser using vscode live server extension**.
