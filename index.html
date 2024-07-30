@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing test</title>
+    <link rel="icon" href="images/keyboard.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="divcontainer">
+      <header class="m-0 d-flex flex-column align-items-center p-2">
+        <h1 class="m-2 text text-center">
+          <span>W</span>elcome <span>i</span>n <span>y</span>our
+          <span>T</span>yping <span>t</span>est!
+        </h1>
+        <h2 class="mb-2">
+          <span>L</span>et's <span>t</span>ry <span> y</span>our<span> t</span
+          >yping <span>s</span>peed
+          <i class="fa-solid fa-face-smile-wink fs-1 text-warning"></i>
+        </h2>
+      </header>
+      <main class="row  m-0 d-flex align-items-center ">
+        <aside
+          class="col-md-6 d-flex flex-column justify-content-center p-5 "
+          id="firstaside"
+         >
+          <div class="input-group mb-3 d-flex justify-content-center ">
+            <div class="input-group-prepend col-sm-4 col-md-10 row">
+              <label class="input-group-text" for="testLevel"
+                ><i class="fa-solid fa-graduation-cap m-1"></i>level:
+              </label>
+              <select class="custom-select h-50" id="testLevel">
+                <option value="easy">easy</option>
+                <option value="medium">medium</option>
+                <option value="hard">hard</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group mb-3 d-flex justify-content-center ">
+            <div class="input-group-prepend col-sm-4 col-md-10 row">
+              <label class="input-group-text ps-4 pe-4" for="testTime"
+                ><i class="fa-regular fa-clock m-1"></i>Time:</label
+              >
+            
+            <select class="custom-select h-50 w1" id="testTime">
+              <option value="1">1min</option>
+              <option value="2">2min</option>
+              <option value="3" id="disabledForHard">3min</option>
+            </select>
+          </div>
+          </div>
+          <div class="text text-center">
+            <h5 class="m-2">Notice!</h5>
+            <p class="m-0 h6 fw-bold ">
+              - If you chose level hard you can't pressed the backspace key .
+            </p>
+            <p class="m-0 h6 fw-bold">
+              - When the timing end, please click the
+              <span class="fw-bolder">"Show Results" </span>button .
+            </p>
+            <p class="m-0 h6 fw-bold">
+              - click the <span class="fw-bolder">"Start" </span>button to start
+              your test.
+            </p>
+          </div>
+
+          <button type="button" id="startBtn" class="btn btn-lg mt-3 w-50 m-auto">
+            Start
+          </button>
+        </aside>
+
+        <aside class="col-md-6 d-flex flex-column align-items-center  text text-center  ">
+          
+            <h4 class="mt-md-4">
+              You chose the level
+              <span id="chosenLevel">(default)easy</span> for
+              <span id="chosenTime">1</span>min
+            </h4>
+            <div class="d-flex ">
+              <h5 class="ms-2">
+                Timing: <span id="timing" class="h4 ps-1"></span>s
+              </h5>
+              <h5 class="ms-2">
+               / Mistakes: <span id="mistakes" class="h4 ps-1">0</span>
+              </h5>
+            </div>
+
+          <div class="p-2  mb-3 " id="quoteContainer"></div>
+
+          <textarea
+            name="toFill"
+            id="toFill"
+            placeholder="write your answer here"
+            class="p-2  mb-3"
+            disabled
+          ></textarea>
+          <button type="button" class="btn btn-lg m-2 w-50 hidden" id="stopBtn">
+            Stop
+          </button>
+          <button
+            type="button"
+            class="btn btn-lg m-2 w-50 hidden"
+            id="restartBtn"
+          >
+            Restart
+          </button>
+
+          <button
+            type="button"
+            id="result"
+            class="btn btn-lg m-2 w-50 hidden"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Show Results
+          </button>
+        </aside>
+      </main>
+     
+
+      <div class="modal" tabindex="-1" id="exampleModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title text text-dark text-center m-auto">
+                <span class="fw-bolder text-danger">Game over!</span> this is
+                your score😁
+              </h2>
+            </div>
+            <div class="modal-body" id="modal-body">
+              <div class="d-flex flex-column align-items-center">
+                <h2>You have wrote <span id="letters"></span> letters,</h2>
+                <h2 class="bg-success p-2">
+                  <span id="correct-letters"></span> correct letters.
+                </h2>
+                <h2 class="bg-danger p-2">
+                  and <span id="incorrect-letters"></span> incorrect letters.
+                </h2>
+              </div>
+              <div>
+                <h2>Your speed is <span id="wpm"></span> WPM.</h2>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    id="progressbar"
+                    role="progressbar"
+                    style="width: 25%; height: 19px"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    0%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                data-bs-dismiss="modal"
+                class="pt-1 ps-2 pe-2 pb-1 m-auto"
+                id="closeBtn"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h6 class="text-white m-0 ">&copy; Copyright 2023-Saadia El Achguir.</h6>
+    </footer>
+
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script src="quotes.js"></script>
+  </body>
+</html>
